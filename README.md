@@ -1,6 +1,10 @@
 # TechDocs Versioning Addon
 
-This repository contains the TechDocs Versioning Addon for [Backstage](https://backstage.io). It is currently work in progress and not yet ready for production use. It's goal is to provide a way to manage and display different versions of documentation within Backstage, e.g. for different branches or tags or even as preview for a pull request. Solves [issue #16711](https://github.com/backstage/backstage/issues/16711).
+This repository contains the TechDocs Versioning Addon for [Backstage](https://backstage.io). It is currently work in progress and not yet ready for production use.
+
+It's goal is to provide a way to manage and display different versions of documentation within Backstage, e.g. for different branches or tags or even as preview for a pull request.
+
+Solves [issue #16711](https://github.com/backstage/backstage/issues/16711).
 
 ![version-selector-gif](./docs/images/backstage-version-selector.gif)
 
