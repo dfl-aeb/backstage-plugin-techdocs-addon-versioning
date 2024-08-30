@@ -7,6 +7,7 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
+import { techdocsModuleVersions } from './plugins/techdocs-backend-module-versions';
 
 const backend = createBackend();
 
@@ -47,6 +48,9 @@ backend.add(import('@backstage/plugin-search-backend-module-pg/alpha'));
 // search collators
 backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
+
+// add techdocs-backend-module-versions
+backend.add(techdocsModuleVersions);
 
 // kubernetes
 backend.add(import('@backstage/plugin-kubernetes-backend/alpha'));

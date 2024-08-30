@@ -58,11 +58,13 @@ import {
   EntityKubernetesContent,
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
+import { TechDocsVersioning } from 'backstage-plugin-techdocs-addon-versioning';
 
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
       <ReportIssue />
+      <TechDocsVersioning />
     </TechDocsAddons>
   </EntityTechdocsContent>
 );

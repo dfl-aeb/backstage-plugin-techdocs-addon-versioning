@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+      TECHDOCS_S3_BUCKET_NAME: techdocs-bucket
+      TECHDOCS_S3_ENDPOINT: http://localhost:9000
+      TECHDOCS_S3_ACCESS_KEY_ID: myuser
+      TECHDOCS_S3_SECRET_ACCESS_KEY: mypassword
+      TECHDOCS_S3_REGION: us-east-1
+    # command: sh -c "minio server /data --console-address ':9001'
+    #  & /minio-init.sh"
+    entrypoint: sh -c "minio server /data --console-address ':9001' & /minio-init.sh && tail -f /dev/null"
+    volumes:
+      - minio-data:/data
+      - ./minio-init.sh:/minio-init.sh
+
+volumes:
+  minio-data:

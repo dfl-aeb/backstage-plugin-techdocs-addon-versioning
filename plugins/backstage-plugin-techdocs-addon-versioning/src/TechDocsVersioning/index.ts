@@ -1,0 +1,1 @@
+export { TechDocsVersioningComponent } from './TechDocsVersioningComponent';

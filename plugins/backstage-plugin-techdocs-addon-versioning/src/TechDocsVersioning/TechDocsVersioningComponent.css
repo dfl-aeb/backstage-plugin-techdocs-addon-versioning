@@ -1,0 +1,15 @@
+.versioning-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.versioning-title {
+  margin-right: 10px;
+  font-weight: lighter;
+}
+
+.versioning-icon {
+  margin-right: 5px;
+  color: orange;
+}

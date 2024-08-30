@@ -58,9 +58,41 @@ proxy:
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
-    runIn: 'docker' # Alternatives - 'local'
+    runIn: 'local'
+    # Below configurations could be used when using the custom techdocs builder image, but since authentication is needed
+    # we would need to implement the authenticated pull of the image
+    # dockerImage: 'genc.docker.repo.aeb.com/infrastructure/build/backstage-techdocs-builder' # use a custom docker image
+    # pullImage: true # or false to disable automatic pulling of image (e.g. if custom docker login is required)
   publisher:
-    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    type: 'awsS3'
+    awsS3:
+      bucketName: ${TECHDOCS_S3_BUCKET_NAME}
+      bucketRootPath: '/'
+      accountId: '123456789012' # only a placeholder, account id is not needed for own S3 (minio)
+      endpoint: ${TECHDOCS_S3_ENDPOINT}
+      s3ForcePathStyle: true
+      credentials:
+        accessKeyId: ${TECHDOCS_S3_ACCESS_KEY_ID}
+        secretAccessKey: ${TECHDOCS_S3_SECRET_ACCESS_KEY}
+      region: ${TECHDOCS_S3_REGION}
+  # techdocs.cache requires backend.cache to be configured with a valid cache store.
+  cache:
+    # Represents the number of milliseconds a statically built asset should
+    # stay cached. Cache invalidation is handled automatically by the frontend,
+    # which compares the build times in cached metadata vs. canonical storage,
+    # allowing long TTLs (e.g. 1 month/year)
+    ttl: 60000
+    # (Optional) The time (in milliseconds) that the TechDocs backend will wait
+    # for a cache service to respond before continuing on as though the cached
+    # object was not found (e.g. when the cache sercice is unavailable). The
+    # default value is 1000
+    #readTimeout: 500
+
+aws:
+  accounts:
+    - accountId: '123456789012' # only a placeholder, account id is not needed for own S3
+      accessKeyId: ${TECHDOCS_S3_ACCESS_KEY_ID}
+      secretAccessKey: ${TECHDOCS_S3_SECRET_ACCESS_KEY}
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers

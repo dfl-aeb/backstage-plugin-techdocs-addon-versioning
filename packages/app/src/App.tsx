@@ -36,6 +36,7 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
+import { TechDocsVersioning } from 'backstage-plugin-techdocs-addon-versioning';
 
 const app = createApp({
   apis,
@@ -78,6 +79,7 @@ const routes = (
     >
       <TechDocsAddons>
         <ReportIssue />
+        <TechDocsVersioning />
       </TechDocsAddons>
     </Route>
     <Route path="/create" element={<ScaffolderPage />} />

@@ -9,6 +9,11 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "outDir": "dist-types",
-    "rootDir": "."
+    "rootDir": ".",
+    "paths": {
+      "backstage-plugin-techdocs-addon-versioning": [
+        "./plugins/backstage-plugin-techdocs-addon-versioning/src"
+      ]
+    }
   }
 }
