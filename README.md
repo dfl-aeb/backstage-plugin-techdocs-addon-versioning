@@ -57,6 +57,7 @@ To test the TechDocs Versioning Addon locally, you can follow these steps:
 
 - Clone the repository
 - Install dependencies with `yarn install`
+- Install mkdocs with the techdocs core with `pip3 install mkdocs-techdocs-core` to be able to build docs locally.
 - Make sure to have Docker and Docker Compose installed
 - Start minio and backstage with the `run.sh` script (make sure to make it executable with `chmod +x run.sh`)
 - This will start minio on `http://localhost:9001` and automatically create a bucket and user credentials that are automatically configured in the backstage backend.
